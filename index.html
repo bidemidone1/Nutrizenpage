@@ -32,15 +32,15 @@
             </p>
         </div>
 
-        <!-- Monetized Links / Actions -->
+        <!-- High-Margin Premium Links / Direct Monetization -->
         <div class="space-y-3 mb-12">
-            <!-- Paid Consultation Link -->
+            <!-- Paid Consultation Booking Link -->
             <a href="https://calendly.com" target="_blank" class="block w-full text-center py-4 px-6 bg-[#2C2C2A] text-[#FBFBFA] rounded-xl text-sm font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300 shadow-sm">
                 Book 1:1 Dietary Consultation
             </a>
 
-            <!-- Digital Product Link -->
-            <a href="#" class="group block w-full bg-white border border-[#EBEBE6] rounded-xl p-4 hover:border-[#2C2C2A] transition-all duration-300 flex items-center justify-between">
+            <!-- Digital Product / Premium Guide -->
+            <a href="https://gumroad.com" target="_blank" class="group block w-full bg-white border border-[#EBEBE6] rounded-xl p-4 hover:border-[#2C2C2A] transition-all duration-300 flex items-center justify-between">
                 <div class="text-left">
                     <span class="block text-xs uppercase tracking-widest text-[#8A8A80] font-medium mb-0.5">E-Book</span>
                     <span class="text-sm font-medium text-[#2C2C2A]">The Mindful Meal Prep Guide</span>
@@ -48,14 +48,14 @@
                 <span class="text-xs font-medium bg-[#F1F1EC] text-[#6B6B60] px-2.5 py-1 rounded-md group-hover:bg-[#2C2C2A] group-hover:text-[#FBFBFA] transition-colors duration-300">$12</span>
             </a>
 
-            <!-- Free Resource Link -->
+            <!-- Free Resource Lead Magnet -->
             <a href="#" class="block w-full text-center py-4 px-6 bg-white border border-[#EBEBE6] rounded-xl text-sm text-[#6B6B60] font-medium hover:border-[#2C2C2A] hover:text-[#2C2C2A] transition-all duration-300">
                 Download Free Anti-Inflammatory Grocery List
             </a>
         </div>
 
         <!-- Interactive Health Hub Card -->
-        <div class="bg-white border border-[#EBEBE6] rounded-2xl p-6 shadow-sm mb-12">
+        <div class="bg-white border border-[#EBEBE6] rounded-2xl p-6 shadow-sm mb-6">
             
             <!-- Minimalist Navigation Tabs -->
             <div class="flex border-b border-[#F1F1EC] mb-5">
@@ -67,7 +67,7 @@
                 </button>
             </div>
             
-            <!-- Shared Core Shared Inputs -->
+            <!-- Core Interactive Input Matrix -->
             <div class="space-y-4">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
@@ -80,19 +80,19 @@
                     </div>
                 </div>
 
-                <!-- Age panel: only visible for Macro Calculator -->
+                <!-- Age Configuration Panel (Only visible for Energy Needs tab) -->
                 <div id="age-container" class="hidden">
                     <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Age (years)</label>
                     <input type="number" id="age" value="28" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
                 </div>
                 
-                <!-- Single Action Button -->
+                <!-- Core Execution Trigger -->
                 <button onclick="handleCalculation()" class="w-full py-3 bg-[#E5E5E0] text-[#2C2C2A] text-xs uppercase tracking-widest font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all duration-300">
                     Analyze Targets
                 </button>
 
-                <!-- BMI Results Panel -->
-                <div id="bmi-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-2">
+                <!-- BMI Output Interface -->
+                <div id="bmi-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-[#6B6B60]">Your BMI:</span>
                         <span id="bmi-val" class="text-sm font-medium text-[#2C2C2A]">--</span>
@@ -101,35 +101,49 @@
                         <span class="text-xs text-[#6B6B60]">Classification:</span>
                         <span id="bmi-status" class="text-xs uppercase tracking-wider font-medium px-2 py-0.5 rounded-md">--</span>
                     </div>
+                    <!-- Micro-Transaction Link (Unlocks Premium Value) -->
+                    <a id="bmi-pdf-link" href="https://buy.stripe.com/mock-bmi" target="_blank" class="block w-full text-center py-2.5 px-4 bg-[#2C2C2A] text-[#FBFBFA] rounded-lg text-xs font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300">
+                        Get Personal Body Assessment PDF • $1.50
+                    </a>
                 </div>
 
-                <!-- Macro Results Panel -->
-                <div id="macro-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-2">
+                <!-- Energy Needs Output Interface -->
+                <div id="macro-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-[#6B6B60]">Estimated BMR:</span>
                         <span id="bmr-val" class="text-sm font-medium text-[#2C2C2A]">--</span>
                     </div>
+                    <!-- Micro-Transaction Link (Unlocks Premium Value) -->
+                    <a id="macro-pdf-link" href="https://buy.stripe.com/mock-macro" target="_blank" class="block w-full text-center py-2.5 px-4 bg-[#2C2C2A] text-[#FBFBFA] rounded-lg text-xs font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300">
+                        Email Full Macro Breakdown Plan • $1.50
+                    </a>
                 </div>
+            </div>
+        </div>
 
-                <!-- Shared Upsell Context Footer -->
-                <div id="upsell-footer" class="hidden p-3 bg-[#FBFBFA] rounded-lg border border-[#EBEBE6] mt-4">
-                    <p class="text-xs text-[#8A8A80] leading-normal text-center">
-                        Metrics offer basic baselines. For deep metabolic diagnostic plans, book a private 1:1 session above.
-                    </p>
-                </div>
+        <!-- Dynamic Product-Match Engine (Native Affiliate / Brand Spot) -->
+        <div id="recommendation-engine" class="hidden p-4 bg-white border border-[#EBEBE6] rounded-xl text-center space-y-2">
+            <p class="text-[10px] uppercase tracking-widest text-[#8A8A80]">Dietitian Recommended Match</p>
+            <div>
+                <a id="product-link" href="https://amazon.com" target="_blank" class="text-xs font-medium text-[#2C2C2A] hover:underline block">
+                    <!-- Dynamic Text Hydrated by JavaScript -->
+                </a>
+                <p id="product-desc" class="text-[11px] text-[#6B6B60] mt-0.5">
+                    <!-- Dynamic Description Hydrated by JavaScript -->
+                </p>
             </div>
         </div>
 
     </main>
 
-    <!-- Aesthetic Footer / SaaS Whitelabel Hook -->
+    <!-- Aesthetic Footer / Premium Whitelabel Link -->
     <footer class="text-center py-8 border-t border-[#EBEBE6] w-full bg-white">
         <a href="#" class="text-xs tracking-widest text-[#8A8A80] uppercase hover:text-[#2C2C2A] transition-colors duration-300">
             Powered by <span class="font-medium text-[#2C2C2A]">ZenPage</span>
         </a>
     </footer>
 
-    <!-- Interactive Logic Matrix -->
+    <!-- Comprehensive Operational Mechanics Script -->
     <script>
         let currentTab = 'bmi';
 
@@ -139,10 +153,10 @@
             const macroTab = document.getElementById('tab-macro');
             const ageContainer = document.getElementById('age-container');
             
-            // Clear prior results states smoothly
+            // Wipe slate dynamically to protect aesthetic rhythm
             document.getElementById('bmi-results').classList.add('hidden');
             document.getElementById('macro-results').classList.add('hidden');
-            document.getElementById('upsell-footer').classList.add('hidden');
+            document.getElementById('recommendation-engine').classList.add('hidden');
 
             if (tab === 'bmi') {
                 bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
@@ -161,7 +175,9 @@
             
             if (!w || !h) return;
 
-            document.getElementById('upsell-footer').classList.remove('hidden');
+            const recEngine = document.getElementById('recommendation-engine');
+            const prodLink = document.getElementById('product-link');
+            const prodDesc = document.getElementById('product-desc');
 
             if (currentTab === 'bmi') {
                 const heightInMeters = h / 100;
@@ -173,15 +189,24 @@
                 if (bmi < 18.5) {
                     status = 'Underweight';
                     statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
+                    // Affiliate injection point A
+                    prodLink.innerText = "Premium Nutrient-Dense Whole Foods Plan";
+                    prodDesc.innerText = "Clean calorie additions like pure date sweetner and whole seeds.";
+                    prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_A";
                 } else if (bmi >= 18.5 && bmi < 25) {
                     status = 'Normal';
                     statusClasses = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
-                } else if (bmi >= 25 && bmi < 30) {
-                    status = 'Overweight';
-                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
+                    // Affiliate injection point B
+                    prodLink.innerText = "High-Accuracy Digital Kitchen Scale";
+                    prodDesc.innerText = "The key device used by professional dietitians for effortless portion tracking.";
+                    prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_B";
                 } else {
-                    status = 'Obese';
+                    status = 'Overweight / Higher Risk';
                     statusClasses = 'bg-rose-50 text-rose-700 border border-rose-200';
+                    // Affiliate injection point C
+                    prodLink.innerText = "Pure Tiger Nut Powder & Fiber Support";
+                    prodDesc.innerText = "Prebiotic rich, zero-refined-sugar alternatives to control glucose response.";
+                    prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_C";
                 }
 
                 document.getElementById('bmi-val').innerText = bmi;
@@ -195,95 +220,21 @@
                 const a = parseFloat(document.getElementById('age').value);
                 if (!a) return;
                 
-                // Mifflin-St Jeor Equation baseline calculation mechanics
+                // Classic Mifflin-St Jeor Equation computation parameters
                 const bmr = Math.round((10 * w) + (6.25 * h) - (5 * a) + 5);
-                
                 document.getElementById('bmr-val').innerText = bmr + ' kcal/day';
                 
+                // General baseline maintenance product match
+                prodLink.innerText = "Mindful Portion Prep Storage System";
+                prodDesc.innerText = "Leak-proof, ultra-clean meal prep containers to easily map your energy needs.";
+                prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_DEFAULT";
+
                 document.getElementById('macro-results').classList.remove('hidden');
                 document.getElementById('bmi-results').classList.add('hidden');
             }
-        }
-    </script>
-</body>
-</html>            Powered by <span class="font-medium text-[#2C2C2A]">ZenPage</span>
-        </a>
-    </footer>
 
-    <!-- Interactive Logic Matrix -->
-    <script>
-        let currentTab = 'bmi';
-
-        function switchTab(tab) {
-            currentTab = tab;
-            const bmiTab = document.getElementById('tab-bmi');
-            const macroTab = document.getElementById('tab-macro');
-            const ageContainer = document.getElementById('age-container');
-            
-            // Clear prior results states smoothly
-            document.getElementById('bmi-results').classList.add('hidden');
-            document.getElementById('macro-results').classList.add('hidden');
-            document.getElementById('upsell-footer').classList.add('hidden');
-
-            if (tab === 'bmi') {
-                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
-                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
-                ageContainer.classList.add('hidden');
-            } else {
-                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
-                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
-                ageContainer.classList.remove('hidden');
-            }
-        }
-
-        function handleCalculation() {
-            const w = parseFloat(document.getElementById('weight').value);
-            const h = parseFloat(document.getElementById('height').value);
-            
-            if (!w || !h) return;
-
-            document.getElementById('upsell-footer').classList.remove('hidden');
-
-            if (currentTab === 'bmi') {
-                const heightInMeters = h / 100;
-                const bmi = (w / (heightInMeters * heightInMeters)).toFixed(1);
-                
-                let status = '';
-                let statusClasses = '';
-                
-                if (bmi < 18.5) {
-                    status = 'Underweight';
-                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
-                } else if (bmi >= 18.5 && bmi < 25) {
-                    status = 'Normal';
-                    statusClasses = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
-                } else if (bmi >= 25 && bmi < 30) {
-                    status = 'Overweight';
-                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
-                } else {
-                    status = 'Obese';
-                    statusClasses = 'bg-rose-50 text-rose-700 border border-rose-200';
-                }
-
-                document.getElementById('bmi-val').innerText = bmi;
-                const statusEl = document.getElementById('bmi-status');
-                statusEl.innerText = status;
-                statusEl.className = `text-xs uppercase tracking-wider font-medium px-2.5 py-1 rounded-md ${statusClasses}`;
-                
-                document.getElementById('bmi-results').classList.remove('hidden');
-                document.getElementById('macro-results').classList.add('hidden');
-            } else {
-                const a = parseFloat(document.getElementById('age').value);
-                if (!a) return;
-                
-                // Mifflin-St Jeor Equation baseline calculation mechanics
-                const bmr = Math.round((10 * w) + (6.25 * h) - (5 * a) + 5);
-                
-                document.getElementById('bmr-val').innerText = bmr + ' kcal/day';
-                
-                document.getElementById('macro-results').classList.remove('hidden');
-                document.getElementById('bmi-results').classList.add('hidden');
-            }
+            // Expose the product recommendation smoothly upon complete evaluation
+            recEngine.classList.remove('hidden');
         }
     </script>
 </body>
