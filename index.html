@@ -23,7 +23,6 @@
         <!-- Profile Header -->
         <div class="text-center mb-10">
             <div class="w-24 h-24 bg-[#E5E5E0] rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center border border-[#EBEBE6]">
-                <!-- Placeholder for Profile Image -->
                 <span class="text-[#8A8A80] text-xs uppercase tracking-widest">Wellness</span>
             </div>
             <h1 class="serif text-3xl font-normal tracking-tight mb-1">Laurels Wellness</h1>
@@ -55,40 +54,68 @@
             </a>
         </div>
 
-        <!-- Interactive Engagement Block (Macro Calculator) -->
+        <!-- Interactive Health Hub Card -->
         <div class="bg-white border border-[#EBEBE6] rounded-2xl p-6 shadow-sm mb-12">
-            <h3 class="serif text-xl mb-1 text-[#2C2C2A]">Calculate Your Daily Energy Needs</h3>
-            <p class="text-xs text-[#8A8A80] mb-5">Quick estimation based on the Mifflin-St Jeor equation.</p>
             
+            <!-- Minimalist Navigation Tabs -->
+            <div class="flex border-b border-[#F1F1EC] mb-5">
+                <button id="tab-bmi" onclick="switchTab('bmi')" class="flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200">
+                    BMI Index
+                </button>
+                <button id="tab-macro" onclick="switchTab('macro')" class="flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200">
+                    Energy Needs
+                </button>
+            </div>
+            
+            <!-- Shared Core Shared Inputs -->
             <div class="space-y-4">
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Weight (kg)</label>
-                    <input type="number" id="weight" value="70" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Weight (kg)</label>
+                        <input type="number" id="weight" value="70" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Height (cm)</label>
+                        <input type="number" id="height" value="170" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Height (cm)</label>
-                    <input type="number" id="height" value="170" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
-                </div>
-                <div>
+
+                <!-- Age panel: only visible for Macro Calculator -->
+                <div id="age-container" class="hidden">
                     <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Age (years)</label>
                     <input type="number" id="age" value="28" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
                 </div>
                 
-                <button onclick="calculateMacros()" class="w-full py-3 bg-[#E5E5E0] text-[#2C2C2A] text-xs uppercase tracking-widest font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all duration-300">
-                    Calculate Targets
+                <!-- Single Action Button -->
+                <button onclick="handleCalculation()" class="w-full py-3 bg-[#E5E5E0] text-[#2C2C2A] text-xs uppercase tracking-widest font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all duration-300">
+                    Analyze Targets
                 </button>
 
-                <!-- Hidden Results Panel -->
-                <div id="results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-2">
+                <!-- BMI Results Panel -->
+                <div id="bmi-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-[#6B6B60]">Your BMI:</span>
+                        <span id="bmi-val" class="text-sm font-medium text-[#2C2C2A]">--</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-[#6B6B60]">Classification:</span>
+                        <span id="bmi-status" class="text-xs uppercase tracking-wider font-medium px-2 py-0.5 rounded-md">--</span>
+                    </div>
+                </div>
+
+                <!-- Macro Results Panel -->
+                <div id="macro-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-2">
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-[#6B6B60]">Estimated BMR:</span>
                         <span id="bmr-val" class="text-sm font-medium text-[#2C2C2A]">--</span>
                     </div>
-                    <div class="p-3 bg-[#FBFBFA] rounded-lg border border-[#EBEBE6] mt-2">
-                        <p class="text-xs text-[#8A8A80] leading-normal">
-                            Want a fully customized macro split and a tailored meal plan? Book a private 1:1 session above.
-                        </p>
-                    </div>
+                </div>
+
+                <!-- Shared Upsell Context Footer -->
+                <div id="upsell-footer" class="hidden p-3 bg-[#FBFBFA] rounded-lg border border-[#EBEBE6] mt-4">
+                    <p class="text-xs text-[#8A8A80] leading-normal text-center">
+                        Metrics offer basic baselines. For deep metabolic diagnostic plans, book a private 1:1 session above.
+                    </p>
                 </div>
             </div>
         </div>
@@ -102,19 +129,160 @@
         </a>
     </footer>
 
-    <!-- Interactive Script Mechanics -->
+    <!-- Interactive Logic Matrix -->
     <script>
-        function calculateMacros() {
+        let currentTab = 'bmi';
+
+        function switchTab(tab) {
+            currentTab = tab;
+            const bmiTab = document.getElementById('tab-bmi');
+            const macroTab = document.getElementById('tab-macro');
+            const ageContainer = document.getElementById('age-container');
+            
+            // Clear prior results states smoothly
+            document.getElementById('bmi-results').classList.add('hidden');
+            document.getElementById('macro-results').classList.add('hidden');
+            document.getElementById('upsell-footer').classList.add('hidden');
+
+            if (tab === 'bmi') {
+                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
+                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
+                ageContainer.classList.add('hidden');
+            } else {
+                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
+                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
+                ageContainer.classList.remove('hidden');
+            }
+        }
+
+        function handleCalculation() {
             const w = parseFloat(document.getElementById('weight').value);
             const h = parseFloat(document.getElementById('height').value);
-            const a = parseFloat(document.getElementById('age').value);
             
-            if(w && h && a) {
-                // Simplified Mifflin-St Jeor for baseline visualization
+            if (!w || !h) return;
+
+            document.getElementById('upsell-footer').classList.remove('hidden');
+
+            if (currentTab === 'bmi') {
+                const heightInMeters = h / 100;
+                const bmi = (w / (heightInMeters * heightInMeters)).toFixed(1);
+                
+                let status = '';
+                let statusClasses = '';
+                
+                if (bmi < 18.5) {
+                    status = 'Underweight';
+                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
+                } else if (bmi >= 18.5 && bmi < 25) {
+                    status = 'Normal';
+                    statusClasses = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
+                } else if (bmi >= 25 && bmi < 30) {
+                    status = 'Overweight';
+                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
+                } else {
+                    status = 'Obese';
+                    statusClasses = 'bg-rose-50 text-rose-700 border border-rose-200';
+                }
+
+                document.getElementById('bmi-val').innerText = bmi;
+                const statusEl = document.getElementById('bmi-status');
+                statusEl.innerText = status;
+                statusEl.className = `text-xs uppercase tracking-wider font-medium px-2.5 py-1 rounded-md ${statusClasses}`;
+                
+                document.getElementById('bmi-results').classList.remove('hidden');
+                document.getElementById('macro-results').classList.add('hidden');
+            } else {
+                const a = parseFloat(document.getElementById('age').value);
+                if (!a) return;
+                
+                // Mifflin-St Jeor Equation baseline calculation mechanics
                 const bmr = Math.round((10 * w) + (6.25 * h) - (5 * a) + 5);
                 
                 document.getElementById('bmr-val').innerText = bmr + ' kcal/day';
-                document.getElementById('results').classList.remove('hidden');
+                
+                document.getElementById('macro-results').classList.remove('hidden');
+                document.getElementById('bmi-results').classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>            Powered by <span class="font-medium text-[#2C2C2A]">ZenPage</span>
+        </a>
+    </footer>
+
+    <!-- Interactive Logic Matrix -->
+    <script>
+        let currentTab = 'bmi';
+
+        function switchTab(tab) {
+            currentTab = tab;
+            const bmiTab = document.getElementById('tab-bmi');
+            const macroTab = document.getElementById('tab-macro');
+            const ageContainer = document.getElementById('age-container');
+            
+            // Clear prior results states smoothly
+            document.getElementById('bmi-results').classList.add('hidden');
+            document.getElementById('macro-results').classList.add('hidden');
+            document.getElementById('upsell-footer').classList.add('hidden');
+
+            if (tab === 'bmi') {
+                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
+                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
+                ageContainer.classList.add('hidden');
+            } else {
+                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
+                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
+                ageContainer.classList.remove('hidden');
+            }
+        }
+
+        function handleCalculation() {
+            const w = parseFloat(document.getElementById('weight').value);
+            const h = parseFloat(document.getElementById('height').value);
+            
+            if (!w || !h) return;
+
+            document.getElementById('upsell-footer').classList.remove('hidden');
+
+            if (currentTab === 'bmi') {
+                const heightInMeters = h / 100;
+                const bmi = (w / (heightInMeters * heightInMeters)).toFixed(1);
+                
+                let status = '';
+                let statusClasses = '';
+                
+                if (bmi < 18.5) {
+                    status = 'Underweight';
+                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
+                } else if (bmi >= 18.5 && bmi < 25) {
+                    status = 'Normal';
+                    statusClasses = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
+                } else if (bmi >= 25 && bmi < 30) {
+                    status = 'Overweight';
+                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
+                } else {
+                    status = 'Obese';
+                    statusClasses = 'bg-rose-50 text-rose-700 border border-rose-200';
+                }
+
+                document.getElementById('bmi-val').innerText = bmi;
+                const statusEl = document.getElementById('bmi-status');
+                statusEl.innerText = status;
+                statusEl.className = `text-xs uppercase tracking-wider font-medium px-2.5 py-1 rounded-md ${statusClasses}`;
+                
+                document.getElementById('bmi-results').classList.remove('hidden');
+                document.getElementById('macro-results').classList.add('hidden');
+            } else {
+                const a = parseFloat(document.getElementById('age').value);
+                if (!a) return;
+                
+                // Mifflin-St Jeor Equation baseline calculation mechanics
+                const bmr = Math.round((10 * w) + (6.25 * h) - (5 * a) + 5);
+                
+                document.getElementById('bmr-val').innerText = bmr + ' kcal/day';
+                
+                document.getElementById('macro-results').classList.remove('hidden');
+                document.getElementById('bmi-results').classList.add('hidden');
             }
         }
     </script>
