@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurels Wellness | Mindful Nutrition</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#FBFBFA] text-[#2C2C2A] antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Main Container -->
+    <main class="max-w-md mx-auto px-6 pt-16 pb-24 w-full">
+        
+        <!-- Profile Header -->
+        <div class="text-center mb-10">
+            <div class="w-24 h-24 bg-[#E5E5E0] rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center border border-[#EBEBE6]">
+                <!-- Placeholder for Profile Image -->
+                <span class="text-[#8A8A80] text-xs uppercase tracking-widest">Wellness</span>
+            </div>
+            <h1 class="serif text-3xl font-normal tracking-tight mb-1">Laurels Wellness</h1>
+            <p class="text-xs uppercase tracking-widest text-[#8A8A80] font-medium mb-3">Nutritionist & Dietitian</p>
+            <p class="text-sm text-[#6B6B60] leading-relaxed max-w-xs mx-auto">
+                Helping you build a mindful relationship with food through science-backed, personalized nutrition.
+            </p>
+        </div>
+
+        <!-- Monetized Links / Actions -->
+        <div class="space-y-3 mb-12">
+            <!-- Paid Consultation Link -->
+            <a href="https://calendly.com" target="_blank" class="block w-full text-center py-4 px-6 bg-[#2C2C2A] text-[#FBFBFA] rounded-xl text-sm font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300 shadow-sm">
+                Book 1:1 Dietary Consultation
+            </a>
+
+            <!-- Digital Product Link -->
+            <a href="#" class="group block w-full bg-white border border-[#EBEBE6] rounded-xl p-4 hover:border-[#2C2C2A] transition-all duration-300 flex items-center justify-between">
+                <div class="text-left">
+                    <span class="block text-xs uppercase tracking-widest text-[#8A8A80] font-medium mb-0.5">E-Book</span>
+                    <span class="text-sm font-medium text-[#2C2C2A]">The Mindful Meal Prep Guide</span>
+                </div>
+                <span class="text-xs font-medium bg-[#F1F1EC] text-[#6B6B60] px-2.5 py-1 rounded-md group-hover:bg-[#2C2C2A] group-hover:text-[#FBFBFA] transition-colors duration-300">$12</span>
+            </a>
+
+            <!-- Free Resource Link -->
+            <a href="#" class="block w-full text-center py-4 px-6 bg-white border border-[#EBEBE6] rounded-xl text-sm text-[#6B6B60] font-medium hover:border-[#2C2C2A] hover:text-[#2C2C2A] transition-all duration-300">
+                Download Free Anti-Inflammatory Grocery List
+            </a>
+        </div>
+
+        <!-- Interactive Engagement Block (Macro Calculator) -->
+        <div class="bg-white border border-[#EBEBE6] rounded-2xl p-6 shadow-sm mb-12">
+            <h3 class="serif text-xl mb-1 text-[#2C2C2A]">Calculate Your Daily Energy Needs</h3>
+            <p class="text-xs text-[#8A8A80] mb-5">Quick estimation based on the Mifflin-St Jeor equation.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Weight (kg)</label>
+                    <input type="number" id="weight" value="70" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Height (cm)</label>
+                    <input type="number" id="height" value="170" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Age (years)</label>
+                    <input type="number" id="age" value="28" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                </div>
+                
+                <button onclick="calculateMacros()" class="w-full py-3 bg-[#E5E5E0] text-[#2C2C2A] text-xs uppercase tracking-widest font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all duration-300">
+                    Calculate Targets
+                </button>
+
+                <!-- Hidden Results Panel -->
+                <div id="results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-[#6B6B60]">Estimated BMR:</span>
+                        <span id="bmr-val" class="text-sm font-medium text-[#2C2C2A]">--</span>
+                    </div>
+                    <div class="p-3 bg-[#FBFBFA] rounded-lg border border-[#EBEBE6] mt-2">
+                        <p class="text-xs text-[#8A8A80] leading-normal">
+                            Want a fully customized macro split and a tailored meal plan? Book a private 1:1 session above.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Aesthetic Footer / SaaS Whitelabel Hook -->
+    <footer class="text-center py-8 border-t border-[#EBEBE6] w-full bg-white">
+        <a href="#" class="text-xs tracking-widest text-[#8A8A80] uppercase hover:text-[#2C2C2A] transition-colors duration-300">
+            Powered by <span class="font-medium text-[#2C2C2A]">ZenPage</span>
+        </a>
+    </footer>
+
+    <!-- Interactive Script Mechanics -->
+    <script>
+        function calculateMacros() {
+            const w = parseFloat(document.getElementById('weight').value);
+            const h = parseFloat(document.getElementById('height').value);
+            const a = parseFloat(document.getElementById('age').value);
+            
+            if(w && h && a) {
+                // Simplified Mifflin-St Jeor for baseline visualization
+                const bmr = Math.round((10 * w) + (6.25 * h) - (5 * a) + 5);
+                
+                document.getElementById('bmr-val').innerText = bmr + ' kcal/day';
+                document.getElementById('results').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
