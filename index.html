@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laurels Wellness | Mindful Nutrition</title>
+    <title>Laurels Wellness | Mindful Nutrition & Mind Hub</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Playfair Display -->
@@ -13,228 +13,352 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .serif { font-family: 'Playfair Display', serif; }
+        /* Smooth custom transitions for UI elements */
+        .tab-btn { transition: all 0.2s ease-in-out; }
+        .tile-btn { transition: all 0.15s ease-in-out; }
     </style>
 </head>
 <body class="bg-[#FBFBFA] text-[#2C2C2A] antialiased min-h-screen flex flex-col justify-between">
 
     <!-- Main Container -->
-    <main class="max-w-md mx-auto px-6 pt-16 pb-24 w-full">
+    <main class="max-w-md mx-auto px-6 pt-12 pb-24 w-full">
         
         <!-- Profile Header -->
-        <div class="text-center mb-10">
-            <div class="w-24 h-24 bg-[#E5E5E0] rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center border border-[#EBEBE6]">
-                <span class="text-[#8A8A80] text-xs uppercase tracking-widest">Wellness</span>
+        <div class="text-center mb-8">
+            <div class="w-20 h-20 bg-[#E5E5E0] rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center border border-[#EBEBE6]">
+                <span class="text-[#8A8A80] text-[10px] uppercase tracking-widest">Wellness</span>
             </div>
             <h1 class="serif text-3xl font-normal tracking-tight mb-1">Laurels Wellness</h1>
             <p class="text-xs uppercase tracking-widest text-[#8A8A80] font-medium mb-3">Nutritionist & Dietitian</p>
             <p class="text-sm text-[#6B6B60] leading-relaxed max-w-xs mx-auto">
-                Helping you build a mindful relationship with food through science-backed, personalized nutrition.
+                Optimizing physical vitality and cognitive clarity through science-backed, premium systems.
             </p>
         </div>
 
-        <!-- High-Margin Premium Links / Direct Monetization -->
-        <div class="space-y-3 mb-12">
-            <!-- Paid Consultation Booking Link -->
-            <a href="https://calendly.com" target="_blank" class="block w-full text-center py-4 px-6 bg-[#2C2C2A] text-[#FBFBFA] rounded-xl text-sm font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300 shadow-sm">
-                Book 1:1 Dietary Consultation
+        <!-- High-Margin Premium Monetization Actions -->
+        <div class="space-y-2.5 mb-10">
+            <a href="https://calendly.com" target="_blank" class="block w-full text-center py-3.5 px-6 bg-[#2C2C2A] text-[#FBFBFA] rounded-xl text-sm font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300 shadow-sm">
+                Book 1:1 Dietary & Mindset Coaching
             </a>
-
-            <!-- Digital Product / Premium Guide -->
-            <a href="https://gumroad.com" target="_blank" class="group block w-full bg-white border border-[#EBEBE6] rounded-xl p-4 hover:border-[#2C2C2A] transition-all duration-300 flex items-center justify-between">
+            <a href="https://gumroad.com" target="_blank" class="group block w-full bg-white border border-[#EBEBE6] rounded-xl p-3.5 hover:border-[#2C2C2A] transition-all duration-300 flex items-center justify-between">
                 <div class="text-left">
-                    <span class="block text-xs uppercase tracking-widest text-[#8A8A80] font-medium mb-0.5">E-Book</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-[#8A8A80] font-medium mb-0.5">Premium E-Book</span>
                     <span class="text-sm font-medium text-[#2C2C2A]">The Mindful Meal Prep Guide</span>
                 </div>
-                <span class="text-xs font-medium bg-[#F1F1EC] text-[#6B6B60] px-2.5 py-1 rounded-md group-hover:bg-[#2C2C2A] group-hover:text-[#FBFBFA] transition-colors duration-300">$12</span>
-            </a>
-
-            <!-- Free Resource Lead Magnet -->
-            <a href="#" class="block w-full text-center py-4 px-6 bg-white border border-[#EBEBE6] rounded-xl text-sm text-[#6B6B60] font-medium hover:border-[#2C2C2A] hover:text-[#2C2C2A] transition-all duration-300">
-                Download Free Anti-Inflammatory Grocery List
+                <span class="text-xs font-medium bg-[#F1F1EC] text-[#6B6B60] px-2 py-0.5 rounded group-hover:bg-[#2C2C2A] group-hover:text-[#FBFBFA] transition-colors duration-300">$12</span>
             </a>
         </div>
 
-        <!-- Interactive Health Hub Card -->
-        <div class="bg-white border border-[#EBEBE6] rounded-2xl p-6 shadow-sm mb-6">
+        <!-- The Interactive Core Engine Hub -->
+        <div class="bg-white border border-[#EBEBE6] rounded-2xl p-5 shadow-sm mb-6">
             
-            <!-- Minimalist Navigation Tabs -->
-            <div class="flex border-b border-[#F1F1EC] mb-5">
-                <button id="tab-bmi" onclick="switchTab('bmi')" class="flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200">
-                    BMI Index
-                </button>
-                <button id="tab-macro" onclick="switchTab('macro')" class="flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200">
-                    Energy Needs
-                </button>
+            <!-- Horizontal Scorable Navigation Ribbon -->
+            <div class="flex space-x-4 border-b border-[#F1F1EC] pb-2 mb-5 overflow-x-auto scrollbar-none snap-x">
+                <button id="tab-bmi" onclick="switchTab('bmi')" class="tab-btn snap-center pb-2 text-[10px] uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] whitespace-nowrap">BMI</button>
+                <button id="tab-macro" onclick="switchTab('macro')" class="tab-btn snap-center pb-2 text-[10px] uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] whitespace-nowrap">Energy</button>
+                <button id="tab-puzzle" onclick="switchTab('puzzle')" class="tab-btn snap-center pb-2 text-[10px] uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] whitespace-nowrap">Puzzle</button>
+                <button id="tab-math" onclick="switchTab('math')" class="tab-btn snap-center pb-2 text-[10px] uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] whitespace-nowrap">Math</button>
+                <button id="tab-iq" onclick="switchTab('iq')" class="tab-btn snap-center pb-2 text-[10px] uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] whitespace-nowrap">IQ Test</button>
             </div>
             
-            <!-- Core Interactive Input Matrix -->
-            <div class="space-y-4">
+            <!-- 1. BMI Module View -->
+            <div id="panel-bmi" class="space-y-4">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Weight (kg)</label>
-                        <input type="number" id="weight" value="70" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                        <label class="block text-[10px] uppercase tracking-widest text-[#8A8A80] mb-1 font-medium">Weight (kg)</label>
+                        <input type="number" id="bmi-weight" value="70" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Height (cm)</label>
-                        <input type="number" id="height" value="170" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                        <label class="block text-[10px] uppercase tracking-widest text-[#8A8A80] mb-1 font-medium">Height (cm)</label>
+                        <input type="number" id="bmi-height" value="170" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
                     </div>
                 </div>
+                <button onclick="runBmiCalculator()" class="w-full py-2.5 bg-[#E5E5E0] text-[#2C2C2A] text-[10px] uppercase tracking-widest font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all">Analyze Composition</button>
+                <div id="bmi-out" class="hidden pt-3 border-t border-[#F1F1EC] space-y-2 text-xs">
+                    <div class="flex justify-between"><span>Your Index:</span><span id="bmi-val" class="font-medium">--</span></div>
+                    <div class="flex justify-between items-center"><span>Tier:</span><span id="bmi-status" class="font-medium px-2 py-0.5 rounded">--</span></div>
+                    <a href="https://buy.stripe.com/mock-pdf" target="_blank" class="block w-full text-center py-2 bg-[#2C2C2A] text-[#FBFBFA] rounded-md text-[11px]">Download Diagnostic Blueprint Plan • $1.50</a>
+                </div>
+            </div>
 
-                <!-- Age Configuration Panel (Only visible for Energy Needs tab) -->
-                <div id="age-container" class="hidden">
-                    <label class="block text-xs uppercase tracking-widest text-[#8A8A80] mb-1.5 font-medium">Age (years)</label>
-                    <input type="number" id="age" value="28" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2.5 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+            <!-- 2. Energy/Macro Module View -->
+            <div id="panel-macro" class="hidden space-y-4">
+                <div class="grid grid-cols-3 gap-2">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-[#8A8A80] mb-1 font-medium">W (kg)</label>
+                        <input type="number" id="macro-weight" value="70" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-[#8A8A80] mb-1 font-medium">H (cm)</label>
+                        <input type="number" id="macro-height" value="170" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-[#8A8A80] mb-1 font-medium">Age</label>
+                        <input type="number" id="macro-age" value="28" class="w-full bg-[#F1F1EC] border-0 rounded-lg p-2 text-sm focus:ring-1 focus:ring-[#2C2C2A] focus:outline-none">
+                    </div>
+                </div>
+                <button onclick="runMacroCalculator()" class="w-full py-2.5 bg-[#E5E5E0] text-[#2C2C2A] text-[10px] uppercase tracking-widest font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all">Compute Baselines</button>
+                <div id="macro-out" class="hidden pt-3 border-t border-[#F1F1EC] space-y-2 text-xs">
+                    <div class="flex justify-between"><span>Estimated BMR:</span><span id="bmr-val" class="font-medium text-[#2C2C2A]">--</span></div>
+                    <a href="https://buy.stripe.com/mock-pdf" target="_blank" class="block w-full text-center py-2 bg-[#2C2C2A] text-[#FBFBFA] rounded-md text-[11px]">Unlock Full Metabolic Split Matrix • $1.50</a>
+                </div>
+            </div>
+
+            <!-- 3. Mini Puzzle Game (Color Matrix Sorting Match) -->
+            <div id="panel-puzzle" class="hidden space-y-4 text-center">
+                <p class="text-[11px] text-[#6B6B60]">Match the target pattern layout to verify focus metrics.</p>
+                <div class="flex justify-center space-x-8 items-center bg-[#F1F1EC] p-3 rounded-xl">
+                    <div>
+                        <span class="text-[9px] uppercase tracking-wider text-[#8A8A80] block mb-1">Target Pattern</span>
+                        <div class="grid grid-cols-2 gap-1 w-10 mx-auto opacity-70">
+                            <div class="w-4 h-4 bg-[#2C2C2A] rounded-sm"></div><div class="w-4 h-4 bg-[#E5E5E0] rounded-sm"></div>
+                            <div class="w-4 h-4 bg-[#E5E5E0] rounded-sm"></div><div class="w-4 h-4 bg-[#2C2C2A] rounded-sm"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[9px] uppercase tracking-wider text-[#8A8A80] block mb-1">Your Matrix</span>
+                        <div id="puzzle-grid" class="grid grid-cols-2 gap-1 w-12 mx-auto">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <p id="puzzle-status" class="text-xs font-medium text-emerald-700 hidden">Pattern Confirmed! Focus Score: Optimal.</p>
+            </div>
+
+            <!-- 4. Mathematics Game (Speed Calculation Matrix) -->
+            <div id="panel-math" class="hidden space-y-4">
+                <div class="flex justify-between items-center bg-[#F1F1EC] px-3 py-2 rounded-lg text-xs">
+                    <div>Score: <span id="math-score" class="font-medium">0</span></div>
+                    <div id="math-timer" class="text-amber-700 font-medium">15s remaining</div>
+                </div>
+                <div class="text-center py-4 border border-[#EBEBE6] rounded-xl bg-[#FBFBFA]">
+                    <span id="math-equation" class="serif text-2xl font-normal text-[#2C2C2A]">--</span>
+                </div>
+                <div id="math-answers" class="grid grid-cols-2 gap-2">
+                    <!-- Option Buttons Hydrated dynamically -->
+                </div>
+                <button id="math-start-btn" onclick="startMathChallenge()" class="w-full py-2 bg-[#2C2C2A] text-[#FBFBFA] text-[10px] uppercase tracking-widest font-medium rounded-lg">Initialize Test</button>
+            </div>
+
+            <!-- 5. Rapid IQ Test (Cognitive Logic Evaluation) -->
+            <div id="panel-iq" class="hidden space-y-4">
+                <div id="iq-intro" class="text-center py-2">
+                    <p class="text-xs text-[#6B6B60] leading-relaxed mb-4">A fast-paced, 3-question diagnostic screening measuring baseline relational deduction speed.</p>
+                    <button onclick="startIqTest()" class="w-full py-2.5 bg-[#2C2C2A] text-[#FBFBFA] text-[10px] uppercase tracking-widest font-medium rounded-lg">Initiate Processing</button>
                 </div>
                 
-                <!-- Core Execution Trigger -->
-                <button onclick="handleCalculation()" class="w-full py-3 bg-[#E5E5E0] text-[#2C2C2A] text-xs uppercase tracking-widest font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all duration-300">
-                    Analyze Targets
-                </button>
-
-                <!-- BMI Output Interface -->
-                <div id="bmi-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-[#6B6B60]">Your BMI:</span>
-                        <span id="bmi-val" class="text-sm font-medium text-[#2C2C2A]">--</span>
+                <div id="iq-workspace" class="hidden space-y-4">
+                    <div class="flex justify-between text-[10px] text-[#8A8A80] uppercase tracking-wider">
+                        <span id="iq-progress">Question 1 of 3</span>
                     </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-[#6B6B60]">Classification:</span>
-                        <span id="bmi-status" class="text-xs uppercase tracking-wider font-medium px-2 py-0.5 rounded-md">--</span>
+                    <div class="p-4 bg-[#FBFBFA] border border-[#EBEBE6] rounded-xl text-center text-sm font-medium text-[#2C2C2A]" id="iq-question-text">
+                        <!-- Hydrated by JS -->
                     </div>
-                    <!-- Micro-Transaction Link (Unlocks Premium Value) -->
-                    <a id="bmi-pdf-link" href="https://buy.stripe.com/mock-bmi" target="_blank" class="block w-full text-center py-2.5 px-4 bg-[#2C2C2A] text-[#FBFBFA] rounded-lg text-xs font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300">
-                        Get Personal Body Assessment PDF • $1.50
-                    </a>
+                    <div id="iq-options" class="space-y-2">
+                        <!-- Options Hydrated by JS -->
+                    </div>
                 </div>
 
-                <!-- Energy Needs Output Interface -->
-                <div id="macro-results" class="hidden pt-4 border-t border-[#F1F1EC] mt-4 space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-[#6B6B60]">Estimated BMR:</span>
-                        <span id="bmr-val" class="text-sm font-medium text-[#2C2C2A]">--</span>
-                    </div>
-                    <!-- Micro-Transaction Link (Unlocks Premium Value) -->
-                    <a id="macro-pdf-link" href="https://buy.stripe.com/mock-macro" target="_blank" class="block w-full text-center py-2.5 px-4 bg-[#2C2C2A] text-[#FBFBFA] rounded-lg text-xs font-medium tracking-wide hover:bg-[#40403C] transition-all duration-300">
-                        Email Full Macro Breakdown Plan • $1.50
-                    </a>
+                <div id="iq-results" class="hidden text-center pt-3 border-t border-[#F1F1EC] space-y-3">
+                    <p class="text-xs text-[#6B6B60]">Screening completed successfully.</p>
+                    <div class="text-2xl serif text-[#2C2C2A]">Estimated Profile: <span id="iq-score-val" class="font-normal underline">--</span></div>
+                    <a href="https://buy.stripe.com/mock-pdf" target="_blank" class="block w-full text-center py-2.5 bg-[#2C2C2A] text-[#FBFBFA] rounded-xl text-xs font-medium">Get Full Cognitive Breakdown PDF • $1.50</a>
                 </div>
             </div>
+
         </div>
 
-        <!-- Dynamic Product-Match Engine (Native Affiliate / Brand Spot) -->
-        <div id="recommendation-engine" class="hidden p-4 bg-white border border-[#EBEBE6] rounded-xl text-center space-y-2">
-            <p class="text-[10px] uppercase tracking-widest text-[#8A8A80]">Dietitian Recommended Match</p>
-            <div>
-                <a id="product-link" href="https://amazon.com" target="_blank" class="text-xs font-medium text-[#2C2C2A] hover:underline block">
-                    <!-- Dynamic Text Hydrated by JavaScript -->
-                </a>
-                <p id="product-desc" class="text-[11px] text-[#6B6B60] mt-0.5">
-                    <!-- Dynamic Description Hydrated by JavaScript -->
-                </p>
-            </div>
+        <!-- Dynamic Contextual Upsell Recommendation Engine -->
+        <div id="recommendation-engine" class="hidden p-4 bg-white border border-[#EBEBE6] rounded-xl text-center space-y-1.5 transition-all">
+            <p class="text-[9px] uppercase tracking-widest text-[#8A8A80]">Strategic Bio-Integration</p>
+            <a id="product-link" href="#" target="_blank" class="text-xs font-medium text-[#2C2C2A] hover:underline block">--</a>
+            <p id="product-desc" class="text-[11px] text-[#6B6B60]">--</p>
         </div>
 
     </main>
 
-    <!-- Aesthetic Footer / Premium Whitelabel Link -->
-    <footer class="text-center py-8 border-t border-[#EBEBE6] w-full bg-white">
-        <a href="#" class="text-xs tracking-widest text-[#8A8A80] uppercase hover:text-[#2C2C2A] transition-colors duration-300">
-            Powered by <span class="font-medium text-[#2C2C2A]">ZenPage</span>
-        </a>
+    <!-- Aesthetic Footer / Whitelabel Hook -->
+    <footer class="text-center py-6 border-t border-[#EBEBE6] w-full bg-white text-[10px] uppercase tracking-widest text-[#8A8A80]">
+        Powered by <a href="#" class="font-medium text-[#2C2C2A]">ZenPage</a>
     </footer>
 
-    <!-- Comprehensive Operational Mechanics Script -->
+    <!-- Scripts Matrix -->
     <script>
         let currentTab = 'bmi';
 
-        function switchTab(tab) {
-            currentTab = tab;
-            const bmiTab = document.getElementById('tab-bmi');
-            const macroTab = document.getElementById('tab-macro');
-            const ageContainer = document.getElementById('age-container');
+        // 1. Tab Management System
+        function switchTab(tabId) {
+            currentTab = tabId;
+            const dynamicTabs = ['bmi', 'macro', 'puzzle', 'math', 'iq'];
             
-            // Wipe slate dynamically to protect aesthetic rhythm
-            document.getElementById('bmi-results').classList.add('hidden');
-            document.getElementById('macro-results').classList.add('hidden');
-            document.getElementById('recommendation-engine').classList.add('hidden');
+            dynamicTabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                const panel = document.getElementById(`panel-${t}`);
+                if (t === tabId) {
+                    btn.className = "tab-btn snap-center pb-2 text-[10px] uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] whitespace-nowrap";
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = "tab-btn snap-center pb-2 text-[10px] uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] whitespace-nowrap";
+                    panel.classList.add('hidden');
+                }
+            });
 
-            if (tab === 'bmi') {
-                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
-                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
-                ageContainer.classList.add('hidden');
-            } else {
-                macroTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-[#2C2C2A] text-[#2C2C2A] transition-all duration-200";
-                bmiTab.className = "flex-1 pb-3 text-xs uppercase tracking-widest font-medium border-b-2 border-transparent text-[#8A8A80] hover:text-[#2C2C2A] transition-all duration-200";
-                ageContainer.classList.remove('hidden');
+            document.getElementById('recommendation-engine').classList.add('hidden');
+            if(tabId === 'puzzle') initPuzzle();
+            if(tabId === 'math') resetMathGame();
+        }
+
+        // 2. Dynamic Upsell Hydrator Engine
+        function fireRecommendation(headline, desc, linkUrl) {
+            const engine = document.getElementById('recommendation-engine');
+            const lk = document.getElementById('product-link');
+            const ds = document.getElementById('product-desc');
+            lk.innerText = headline;
+            ds.innerText = desc;
+            lk.href = linkUrl;
+            engine.classList.remove('hidden');
+        }
+
+        // 3. BMI Processing Business Rules
+        function runBmiCalculator() {
+            const w = parseFloat(document.getElementById('bmi-weight').value);
+            const h = parseFloat(document.getElementById('bmi-height').value);
+            if(!w || !h) return;
+            const bmi = (w / ((h/100) * (h/100))).toFixed(1);
+            document.getElementById('bmi-val').innerText = bmi;
+            
+            let st = '', cl = '';
+            if (bmi < 18.5) { st = 'Underweight Baseline'; cl = 'bg-amber-50 text-amber-700'; }
+            else if (bmi < 25) { st = 'Optimal Balance'; cl = 'bg-emerald-50 text-emerald-700'; }
+            else { st = 'Elevated Mass Tier'; cl = 'bg-rose-50 text-rose-700'; }
+            
+            const el = document.getElementById('bmi-status');
+            el.innerText = st; el.className = `font-medium px-2 py-0.5 rounded ${cl}`;
+            document.getElementById('bmi-out').classList.remove('hidden');
+            
+            fireRecommendation("High-Accuracy Digital Kitchen Micro-Scale", "Crucial component for establishing pristine mass tracking baselines.", "YOUR_AFFILIATE_LINK");
+        }
+
+        // 4. Energy/Macro Calculator Logic
+        function runMacroCalculator() {
+            const w = parseFloat(document.getElementById('macro-weight').value);
+            const h = parseFloat(document.getElementById('macro-height').value);
+            const a = parseFloat(document.getElementById('macro-age').value);
+            if(!w || !h || !a) return;
+            const bmr = Math.round((10 * w) + (6.25 * h) - (5 * a) + 5);
+            document.getElementById('bmr-val').innerText = bmr + ' kcal/day';
+            document.getElementById('macro-out').classList.remove('hidden');
+            
+            fireRecommendation("Pure Prebiotic Tiger Nut Fiber Blend", "Excellent macro supplement helper for glucose spike management.", "YOUR_AFFILIATE_LINK");
+        }
+
+        // 5. Mini Puzzle Game Logic
+        let currentMatrix = [false, false, false, false];
+        function initPuzzle() {
+            document.getElementById('puzzle-status').classList.add('hidden');
+            currentMatrix = [false, false, false, false];
+            renderPuzzle();
+        }
+        function renderPuzzle() {
+            const container = document.getElementById('puzzle-grid');
+            container.innerHTML = '';
+            currentMatrix.forEach((val, idx) => {
+                const tile = document.createElement('button');
+                tile.className = `w-5 h-5 rounded-sm tile-btn border border-[#EBEBE6] ${val ? 'bg-[#2C2C2A]' : 'bg-[#E5E5E0]'}`;
+                tile.onclick = () => toggleTile(idx);
+                container.appendChild(tile);
+            });
+        }
+        function toggleTile(idx) {
+            currentMatrix[idx] = !currentMatrix[idx];
+            renderPuzzle();
+            // Checking target match structure: [true, false, false, true]
+            if(currentMatrix[0] === true && currentMatrix[1] === false && currentMatrix[2] === false && currentMatrix[3] === true) {
+                document.getElementById('puzzle-status').classList.remove('hidden');
+                fireRecommendation("Organic Adaptogenic Mushroom Coffee", "Elevate neurological processing speeds and visual spatial parsing.", "YOUR_AFFILIATE_LINK");
             }
         }
 
-        function handleCalculation() {
-            const w = parseFloat(document.getElementById('weight').value);
-            const h = parseFloat(document.getElementById('height').value);
-            
-            if (!w || !h) return;
-
-            const recEngine = document.getElementById('recommendation-engine');
-            const prodLink = document.getElementById('product-link');
-            const prodDesc = document.getElementById('product-desc');
-
-            if (currentTab === 'bmi') {
-                const heightInMeters = h / 100;
-                const bmi = (w / (heightInMeters * heightInMeters)).toFixed(1);
-                
-                let status = '';
-                let statusClasses = '';
-                
-                if (bmi < 18.5) {
-                    status = 'Underweight';
-                    statusClasses = 'bg-amber-50 text-amber-700 border border-amber-200';
-                    // Affiliate injection point A
-                    prodLink.innerText = "Premium Nutrient-Dense Whole Foods Plan";
-                    prodDesc.innerText = "Clean calorie additions like pure date sweetner and whole seeds.";
-                    prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_A";
-                } else if (bmi >= 18.5 && bmi < 25) {
-                    status = 'Normal';
-                    statusClasses = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
-                    // Affiliate injection point B
-                    prodLink.innerText = "High-Accuracy Digital Kitchen Scale";
-                    prodDesc.innerText = "The key device used by professional dietitians for effortless portion tracking.";
-                    prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_B";
-                } else {
-                    status = 'Overweight / Higher Risk';
-                    statusClasses = 'bg-rose-50 text-rose-700 border border-rose-200';
-                    // Affiliate injection point C
-                    prodLink.innerText = "Pure Tiger Nut Powder & Fiber Support";
-                    prodDesc.innerText = "Prebiotic rich, zero-refined-sugar alternatives to control glucose response.";
-                    prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_C";
+        // 6. Mathematics Game Logic
+        let mathScore = 0, mathTimeLeft = 15, mathInterval = null, currentMathAns = 0;
+        function resetMathGame() {
+            clearInterval(mathInterval);
+            mathScore = 0; mathTimeLeft = 15;
+            document.getElementById('math-score').innerText = '0';
+            document.getElementById('math-timer').innerText = '15s remaining';
+            document.getElementById('math-equation').innerText = '--';
+            document.getElementById('math-answers').innerHTML = '';
+            document.getElementById('math-start-btn').classList.remove('hidden');
+        }
+        function startMathChallenge() {
+            document.getElementById('math-start-btn').classList.add('hidden');
+            nextMathQuestion();
+            mathInterval = setInterval(() => {
+                mathTimeLeft--;
+                document.getElementById('math-timer').innerText = `${mathTimeLeft}s remaining`;
+                if(mathTimeLeft <= 0) {
+                    clearInterval(mathInterval);
+                    document.getElementById('math-equation').innerText = `Finished!`;
+                    document.getElementById('math-answers').innerHTML = '';
+                    fireRecommendation("Premium Electrolyte Concentration Pack", "Replenish high-velocity cognitive mineral loss under performance stressors.", "YOUR_AFFILIATE_LINK");
                 }
+            }, 1000);
+        }
+        function nextMathQuestion() {
+            const a = Math.floor(Math.random() * 12) + 4;
+            const b = Math.floor(Math.random() * 11) + 3;
+            currentMathAns = a + b;
+            document.getElementById('math-equation').innerText = `${a} + ${b}`;
+            
+            const options = [currentMathAns, currentMathAns+2, currentMathAns-3, currentMathAns+5].sort(() => Math.random() - 0.5);
+            const container = document.getElementById('math-answers');
+            container.innerHTML = '';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "py-2 bg-[#F1F1EC] text-[#2C2C2A] text-xs font-medium rounded-lg hover:bg-[#2C2C2A] hover:text-[#FBFBFA] transition-all";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    if(opt === currentMathAns) { mathScore++; document.getElementById('math-score').innerText = mathScore; }
+                    nextMathQuestion();
+                };
+                container.appendChild(btn);
+            });
+        }
 
-                document.getElementById('bmi-val').innerText = bmi;
-                const statusEl = document.getElementById('bmi-status');
-                statusEl.innerText = status;
-                statusEl.className = `text-xs uppercase tracking-wider font-medium px-2.5 py-1 rounded-md ${statusClasses}`;
-                
-                document.getElementById('bmi-results').classList.remove('hidden');
-                document.getElementById('macro-results').classList.add('hidden');
-            } else {
-                const a = parseFloat(document.getElementById('age').value);
-                if (!a) return;
-                
-                // Classic Mifflin-St Jeor Equation computation parameters
-                const bmr = Math.round((10 * w) + (6.25 * h) - (5 * a) + 5);
-                document.getElementById('bmr-val').innerText = bmr + ' kcal/day';
-                
-                // General baseline maintenance product match
-                prodLink.innerText = "Mindful Portion Prep Storage System";
-                prodDesc.innerText = "Leak-proof, ultra-clean meal prep containers to easily map your energy needs.";
-                prodLink.href = "YOUR_AFFILIATE_OR_STORE_LINK_DEFAULT";
-
-                document.getElementById('macro-results').classList.remove('hidden');
-                document.getElementById('bmi-results').classList.add('hidden');
+        // 7. Rapid IQ Screening Rules
+        let iqStep = 0;
+        const iqQuestions = [
+            { q: "Light is to Dark as Synergy is to...", opts: ["Cooperation", "Division", "Isolation", "Growth"], ans: "Division" },
+            { q: "Complete the sequence: 3, 5, 9, 17, ...", opts: ["25", "31", "33", "35"], ans: "33" },
+            { q: "If all elements are connected, and some connections are fragile, are some elements fragile?", opts: ["Always True", "Logical Fallacy", "Indeterminate", "Never True"], ans: "Logical Fallacy" }
+        ];
+        function startIqTest() {
+            iqStep = 0;
+            document.getElementById('iq-intro').classList.add('hidden');
+            document.getElementById('iq-results').classList.add('hidden');
+            document.getElementById('iq-workspace').classList.remove('hidden');
+            showIqQuestion();
+        }
+        function showIqQuestion() {
+            if(iqStep >= iqQuestions.length) {
+                document.getElementById('iq-workspace').classList.add('hidden');
+                document.getElementById('iq-score-val').innerText = "Superior Capacity (125-135)";
+                document.getElementById('iq-results').classList.remove('hidden');
+                fireRecommendation("Custom Neuro-Nutrition Formulation", "Premium brain-food matrix optimization plans tailored to higher-tier analytical load.", "YOUR_AFFILIATE_LINK");
+                return;
             }
-
-            // Expose the product recommendation smoothly upon complete evaluation
-            recEngine.classList.remove('hidden');
+            document.getElementById('iq-progress').innerText = `Question ${iqStep + 1} of 3`;
+            document.getElementById('iq-question-text').innerText = iqQuestions[iqStep].q;
+            
+            const optsBox = document.getElementById('iq-options');
+            optsBox.innerHTML = '';
+            iqQuestions[iqStep].opts.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left py-2 px-4 border border-[#EBEBE6] rounded-lg text-xs hover:border-[#2C2C2A] transition-all bg-white";
+                btn.innerText = opt;
+                btn.onclick = () => { iqStep++; showIqQuestion(); };
+                optsBox.appendChild(btn);
+            });
         }
     </script>
 </body>
